@@ -251,19 +251,6 @@ if __name__ == '__main__':
     print(excel.number_of_rows())
 
     sorted_data = excel.sort_data('Gross Earnings', False)
-    # excel.plot_data(sorted_data, 'Gross Earnings', 'barh', 10)
-    # excel.plot_data(data, 'IMDB Score', 'hist')
-    # print(data.columns.values)
-    # excel.set_cols(col_names)
-    # excel.new_cols('test', data['Budget'] * 5)
-    # print(worksheet.dim_rowmax)
-    # print(worksheet.dim_rowmin)
-    # print(worksheet.dim_colmin)
-    # print(worksheet.dim_colmax)
-    # print(worksheet.name)
-    # print(worksheet.index)
-    # ~/Anaconda3/Lib/site-packages/xlsxwriter/worksheet.py:187
-
     writer, workbook, worksheet = excel.get_xls_writer_objects(df=data,
                                                                file_name='output.xlsx',
                                                                sheet_name='test1')
@@ -309,8 +296,6 @@ if __name__ == '__main__':
     excel.col_auto_fit(data, worksheet)
     excel.zoom(worksheet, 90)
     workbook.close()
-
-    # excel.auto_fit_cols(r'C:\Users\Sesan\OneDrive\@Python_Projects\python-in-excel\output.xlsx', 'test1')
 
     pvt = excel.pivot_table(index_cols=['Language'], subset_cols=['Language', 'Budget', 'Gross Earnings'])
     pvt.to_excel('pivot.xlsx')
